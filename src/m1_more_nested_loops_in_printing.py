@@ -4,8 +4,8 @@ in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Chloe Rife.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -56,7 +56,7 @@ def triangle_right_justified(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: Do the following problem FIRST, then convert x's to spaces:
@@ -74,7 +74,12 @@ def triangle_right_justified(r):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
-
+    for down in range(r):
+        for x_over in range(r-down-1):
+            print(' ',end='')
+        for n_over in range(down+1):
+            print(1+n_over,end='')
+        print()
 
 def run_test_triangle_upside_down():
     """ Tests the    triangle_upside_down    function. """
@@ -110,7 +115,7 @@ def triangle_upside_down(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -118,7 +123,12 @@ def triangle_upside_down(r):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
-
+    for down in range(r):
+        for x_over in range(down+1):
+            print(' ',end='')
+        for n_over in range(r-down):
+            print(1+n_over,end='')
+        print()
 
 def run_test_vee():
     """ Tests the    vee    function. """
@@ -161,7 +171,7 @@ def vee(r):
     For purposes of "lining up", assume r is a single digit.
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # done: 4. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -169,7 +179,15 @@ def vee(r):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
-
+    for down in range(r):
+        for x_over in range(down+1):
+            print(' ',end='')
+        for n_over in range(r-down):
+            print(1+n_over,end='')
+        print('-',end='')
+        for x_over in range(r-down,0,-1):
+            print(x_over,end='')
+        print()
 
 def run_test_numbers_constant_forward():
     """ Tests the    numbers_constant_forward    function. """
@@ -217,7 +235,7 @@ def numbers_constant_forward(r, maxnum, n):
     Preconditions:  r, maxnum and n are positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # done: 5. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # HINT: What loop structure do you need for this problem?
@@ -227,6 +245,15 @@ def numbers_constant_forward(r, maxnum, n):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
+    numbers=1
+    for row in range(r):
+        while numbers <= maxnum:
+            for num in range(n):
+                print(numbers, end='')
+            print(' ',end='')
+            numbers=numbers+1
+        numbers=1
+        print()
 
 
 def run_test_numbers_constant_backwards():
@@ -261,7 +288,7 @@ def numbers_constant_backwards(r, maxnum, n):
     Preconditions:  r, maxnum and n are positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # done: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -269,6 +296,16 @@ def numbers_constant_backwards(r, maxnum, n):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
+    numbers=maxnum
+    for row in range(r):
+        while numbers >= 1:
+            for num in range(n):
+                print(numbers, end='')
+            print(' ',end='')
+            numbers=numbers-1
+        numbers=maxnum
+        print()
+
 
 
 def run_test_numbers_increasing_forward():
@@ -313,7 +350,7 @@ def numbers_increasing_forward(r, maxnum):
     Preconditions:  r and maxnum are positive integers.
     """
     # -------------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # done: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
@@ -321,6 +358,15 @@ def numbers_increasing_forward(r, maxnum):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # -------------------------------------------------------------------------
+    numbers=1
+    for row in range(r):
+        while numbers <= maxnum:
+            for num in range(numbers):
+                print(numbers, end='')
+            print(' ',end='')
+            numbers=numbers+1
+        numbers=1
+        print()
 
 
 # -----------------------------------------------------------------------------
