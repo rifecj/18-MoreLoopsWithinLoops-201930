@@ -50,19 +50,21 @@ def draw_upside_down_wall(rectangle, n, window):
     and n is nonnegative.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # done: 2. Implement and test this function.
     #     Some tests are already written for you (above).
     # -------------------------------------------------------------------------
 
     width=abs(rectangle.corner_1.x-rectangle.corner_2.x)
     height=abs(rectangle.corner_1.y-rectangle.corner_2.y)
     for down in range(n):
+        offset = .5 * width*down
         for over in range(down+1):
-            c1 = rg.Point(rectangle.corner_1.x-width*over,rectangle.corner_1.y+height*down)
-            c2 = rg.Point(rectangle.corner_2.x-width*over, rectangle.corner_2.y+height*down)
+            c1 = rg.Point(rectangle.corner_1.x-offset+width*over,rectangle.corner_1.y-height*down)
+            c2 = rg.Point(rectangle.corner_2.x-offset+width*over, rectangle.corner_2.y-height*down)
             rect=rg.Rectangle(c1,c2)
             rect.attach_to(window)
-            window.render(.5)
+            window.render()
+
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
